@@ -20,7 +20,16 @@ const io = socketIO(server, { cors: { origin: '*' } });
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/chat-app');
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('MongoDB Connected');
+  } catch (err) {
+    console.error('MongoDB Connection Error :x:', err);
+  }
+};
+connectDB();
+
 
 const groupSchema = new mongoose.Schema({
   name: String,
