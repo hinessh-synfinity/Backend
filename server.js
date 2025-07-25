@@ -4,8 +4,8 @@ const http = require('http');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const socketIO = require('socket.io');
-const User = require('./models/User');
-const Message = require('./models/Message');
+const User = require('./User');
+const Message = require('./Message');
 
 require('dotenv').config();
 
